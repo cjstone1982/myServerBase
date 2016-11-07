@@ -3,6 +3,8 @@ var models=require('./schema')
 var settings=require('../settings')
 var Schema=mongoose.Schema
 
+mongoose.Promise = global.Promise;
+
 for( var name in models ){
 	mongoose.model( name , new Schema( models[ name ] ))
 }

@@ -1,3 +1,4 @@
+console.log('myServerBase start');
 var compression  = require('compression'); //gzip静态页面压缩
 var express      = require('express')
 var path         = require('path')
@@ -18,7 +19,6 @@ db = require('./server/db')
 db.connect()
 
 var app = express()
-
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -60,6 +60,7 @@ app.use(session({
 app.use('/', routes)
 
 http.createServer(app).listen(settings.serverPort,function(){
+    console.log('new');
 	console.log('server start at '+settings.serverPort+'')
 })
 
